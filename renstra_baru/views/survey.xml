@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Define tree of form views-->
+    <record id="survey_kepuasan_view_tree" model="ir.ui.view">
+        <field name="name">survey_kepuasan.view.tree</field>
+        <field name="model">survey.kepuasan</field>
+        <field name="arch" type="xml">
+            <tree string="Input Survey Kepuasan">
+                    <field name="kepuasan_bebangaji"></field>
+                    <field name="ketersediaan_sop"></field>
+                    <field name="sarpras_pembelajaran"></field>
+                    <field name="sarpras_peneltian"></field>
+                    <field name="kesempatan_pengembangan_diri"></field>
+                    <field name="fasilitas_informasi_penelitian"></field>
+                    <field name="fasilitas_informasi_pengabdian"></field>
+                    <field name="fasilitas_tik"></field>
+                    <field name="pemberian_motivasi"></field>
+                    <field name="fasilitas_kenaikan_jabatan"></field>
+                    <field name="kesempatan_pengembangan_ide"></field>
+                    <field name="pemberian_penghargaan"></field>
+                    <field name="keberadaan_sangsi"></field>
+                    <field name="pemberian_hak"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!--create form view from the models fields-->
+    <record id="survey_kepuasan_view_form" model="ir.ui.view">
+        <field name="name">survey_kepuasan.view.form</field>
+        <field name="model">survey.kepuasan</field>
+        <field name="arch" type="xml">
+            <form string="Survey Kepuasan">
+                <sheet>
+                    <group name="Survey Kepuasan Dosen" string="Input Survey Kepuasan">
+                      
+                        <field name="fasilitas_informasi_pengabdian"></field>
+                        <field name="fasilitas_tik"></field>
+                        <field name="pemberian_motivasi"></field>
+                        <field name="fasilitas_kenaikan_jabatan"></field>
+                        <field name="kesempatan_pengembangan_ide"></field>
+                        <field name="pemberian_penghargaan"></field>
+                        <field name="keberadaan_sangsi"></field>
+                        <field name="pemberian_hak"></field>
+                        
+                    
+                        <field name="kepuasan_bebangaji"></field>
+                        <field name="ketersediaan_sop"></field>
+                        <field name="sarpras_pembelajaran"></field>
+                        <field name="sarpras_peneltian"></field>
+                        <field name="kesempatan_pengembangan_diri"></field>
+                        <field name="fasilitas_informasi_penelitian"></field>
+                        <field name="fasilitas_informasi_pengabdian"></field>
+                        
+                    </group>  
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- create action windows from models fields -->
+     <record id="action_survey_kepuasan" model="ir.actions.act_window">
+        <field name="name">Input Survey Kepuasan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">survey.kepuasan</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new data
+            </p>
+        </field>
+    </record>
+
+</odoo>

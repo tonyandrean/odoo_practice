@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--create menu items-->
+    <menuitem
+        id="renstra_root_menu"
+        name="Renstra"
+        sequence="0" />
+
+    <menuitem
+        id="koordinator"
+        name="Koordinator"
+        sequence="0"
+        parent="renstra_root_menu"
+        action="action_renstra_koordinator" />
+
+    <menuitem
+        id="akreditasi"
+        name="Akreditasi"
+        sequence="0"
+        parent="renstra_root_menu" />
+
+    <menuitem
+        id="akreditasi_dashboard"
+        name="Dashboard Akreditasi"
+        parent="akreditasi"
+        sequence="0"
+        action="action_dashboard_akreditasi" />
+
+    <menuitem
+        id="akreditasi_input"
+        name="Input Data Akreditasi"
+        sequence="0"
+        parent="akreditasi"
+        action="action_akreditasi_ban_pt" />
+
+    <menuitem
+        id="survey"
+        name="Input Survey Kepuasan"
+        sequence="0"
+        parent="renstra_root_menu" />
+
+    <menuitem
+        id="survey_dosen"
+        name="Input Survey Dosen"
+        sequence="0"
+        parent="survey"
+        action="action_survey_kepuasan" />
+
+    <menuitem
+        id="survey_tenagakependidikan"
+        name="Input Survey Tenaga Pendidik"
+        sequence="0"
+        parent="survey"
+        action="action_survey_kepuasan_tenagakependidikan" />
+
+    <!-- <menuitem
+        id="kelulusan"
+        name="Kelulusan"
+        sequence="0"
+        parent="renstra_root_menu" />
+
+    <menuitem
+        id="input_kelulusan"
+        name="Input Data Kelulusan"
+        sequence="0"
+        parent="kelulusan"
+        action="action_renstra_kelulusan" />
+
+    <menuitem
+        id="kelulusan_dashboard"
+        name="Dashboard Kelulusan Mahasiswa"
+        parent="kelulusan"
+        sequence="0"
+        action="action_dashboard_kelulusan" /> -->
+
+</odoo>

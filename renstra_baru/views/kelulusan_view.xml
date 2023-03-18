@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Define tree of form views-->
+    <record id="renstra_kelulusan_tree" model="ir.ui.view">
+        <field name="name">renstra_kelulusan.view.tree</field>
+        <field name="model">renstra.kelulusan.mhs</field>
+        <field name="arch" type="xml">
+            <tree string="Data Kelulusan Mahasiswa">
+                    <!-- <field name="user_id"></field> -->
+                    <field name="name"></field>
+                    <field name="nim"></field>
+                    <field name="jurusan"></field>
+                    <field name="tahun_masuk"></field>
+                    <field name="state"></field>
+                    <field name="ipk"></field>
+                    <field name="lama_study"></field>
+                    <field name="rata_study"></field>
+            </tree>
+        </field>
+    </record>
+     <record id="dashboard_kelulusan_view" model="ir.ui.view">
+        <field name="name">renstra_kelulusan.view.graph</field>
+        <field name="model">renstra.kelulusan.mhs</field>
+        <field name="arch" type="xml">
+            <graph string="Report Kelulusan" type="bar" sample="1">
+                 <field name="lama_study"></field>
+            </graph>
+        </field>
+    </record>
+
+  
+
+
+    <!--create form view from the models fields-->
+    <record id="renstra_kelulusan_view_form" model="ir.ui.view">
+        <field name="name">renstra_kelulusan.view.form</field>
+        <field name="model">renstra.kelulusan.mhs</field>
+        <field name="arch" type="xml">
+            <form string="Input Data Kelulusan Mahasiswa">
+                <sheet>
+                    <group name="kelulusan Mahasiswa" string="Input Data Kelulusan Mahasiswa">
+                        <group>
+                            
+                            <field name="name"></field>
+                            <field name="nim"></field>
+                            <field name="jurusan"></field>
+                            <field name="tahun_masuk"></field>
+                            
+                        </group>
+                        <group>
+                            <field name="state"></field>
+                            <field name="ipk"></field>
+                            <field name="lama_study"></field>
+                            <field name="rata_study"></field>
+                        </group>    
+                    </group>  
+                </sheet>
+            </form>
+        </field>
+    </record>
+     <record id="renstra_kelulusan_view_search" model="ir.ui.view">
+        <field name="name">renstra_kelulusan.view.search</field>
+        <field name="model">renstra.kelulusan.mhs</field>
+        <field name="arch" type="xml">
+            <search>
+                    <field name="name"></field>
+                    <field name="nim"></field>
+                    <field name="jurusan"></field>
+                    <field name="tahun_masuk"></field>
+                    <field name="state"></field>
+                    <field name="ipk"></field>
+                    <field name="lama_study"></field>
+                    <filter name="filter_TI" string="filter_TI" domain="[('jurusan', '=','informatika')]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_jurusan" string="group_by_jurusan"  context="{'group_by': 'jurusan'}" />
+                        <filter name="group_by_tahun_masuk" string="group_by_tahun_masuk"  context="{'group_by': 'tahun_masuk'}" /> 
+                    </group>
+            </search>
+        </field>
+    </record>
+
+   
+
+    <!-- create action windows from models fields -->
+     <record id="action_renstra_kelulusan" model="ir.actions.act_window">
+        <field name="name">Kelulusan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">renstra.kelulusan.mhs</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_group_by_jurusan':1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new data
+            </p>
+        </field>
+    </record>
+
+</odoo>

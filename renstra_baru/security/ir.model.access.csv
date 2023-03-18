@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.input.akreditasi,access_input_akreditasi,model_akreditasi_ban_pt,group_input,1,1,1,1
+access.input.survey.kepuasan,access_input_survey_kepuasan,model_survey_kepuasan,group_input,1,1,1,1
+access.input.survey.tenagakependidikan,access_input_survey_tenagapendidikan,model_survey_kepuasan_tenagakependidikan,group_input,1,1,1,1
+access.renstra.koordinator.admin,accsess_renstra_koordinator_admin,model_renstra_koordinator,group_admin,1,1,1,1
+access.renstra.koordinator.kemahasiswaan,accsess_renstra_koordinator_kemahasiswaan,model_renstra_koordinator,group_koordinator_kemahasiswaan,0,0,0,0
+access.input.akreditasi,access_input_akreditasi,model_akreditasi_ban_pt,group_koordinator_kemahasiswaan,1,1,1,1
+access.input.survey.kepuasan,access_input_survey_kepuasan,model_survey_kepuasan,group_koordinator_kemahasiswaan,1,1,1,1
+access.input.survey.tenagakependidikan,access_input_survey_tenagapendidikan,model_survey_kepuasan_tenagakependidikan,group_koordinator_kemahasiswaan,1,1,1,1
+
+
+access.renstra.koordinator.kemahasiswaan.penalaranft,accsess_renstra_koordinator_kemahasiswaan_penalaranft,model_renstra_koordinator,group_koordinator_kemahasiswaan_penalaranft,0,0,0,0
+access.input.akreditasi,access_input_akreditasi,model_akreditasi_ban_pt,group_koordinator_kemahasiswaan,1,1,1,1
+access.input.survey.kepuasan,access_input_survey_kepuasan,model_survey_kepuasan,group_koordinator_kemahasiswaan,1,1,1,1
+access.input.survey.tenagakependidikan,access_input_survey_tenagapendidikan,model_survey_kepuasan_tenagakependidikan,group_koordinator_kemahasiswaan_penalaranft,1,1,1,1

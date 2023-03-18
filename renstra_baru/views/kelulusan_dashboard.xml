@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    
+    <record id="dashboard_kelulusan_view" model="ir.ui.view">
+        <field name="name">Dashboard Kelulusan Mahasiswa</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Report Kelulusan Mahasiswa">
+                <board style="1-2">
+                    <column>
+                       
+                        <action string="Data Kelulusan Mahasiswa" name="%(action_renstra_kelulusan)d"/>      
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+    
+
+    <record id="action_graph_kelulusan" model="ir.actions.act_window">
+        <field name="name">Graph Rata Rata Lama Study</field>
+        <field name="res_model">renstra.kelulusan.mhs</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="graph_kelulusan_view"/>
+    </record>
+
+
+  
+    
+    <record id="action_dashboard_kelulusan" model="ir.actions.act_window">
+        <field name="name">Dashboard Data Kelulusan</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="dashboard_kelulusan_view"/>
+    </record>
+    <!-- create graph from record -->
+  
+
+</odoo>
