@@ -1,24 +1,93 @@
 <odoo>
     <data>
-<!--
-        <template id="listing">
-          <ul>
-            <li t-foreach="objects" t-as="object">
-              <a t-attf-href="#{ root }/objects/#{ object.id }">
-                <t t-esc="object.display_name"/>
-              </a>
-            </li>
-          </ul>
-        </template>
-        <template id="object">
-          <h1><t t-esc="object.display_name"/></h1>
-          <dl>
-            <t t-foreach="object._fields" t-as="field">
-              <dt><t t-esc="field"/></dt>
-              <dd><t t-esc="object[field]"/></dd>
-            </t>
-          </dl>
-        </template>
--->
+        <!-- <record id="jib_2021" model="ir.config_parameter">
+            <field name="key">jib_2021</field>
+            <field name="value" eval="0.4"/>
+        </record>
+
+        <record id="jib_2022" model="ir.config_parameter">
+            <field name="key">jib_2022</field>
+            <field name="value" eval="0.4"/>
+        </record>
+
+        <record id="jib_2023" model="ir.config_parameter">
+            <field name="key">jib_2023</field>
+            <field name="value" eval="0.4"/>
+        </record>
+
+        <record id="jib_2024" model="ir.config_parameter">
+            <field name="key">jib_2024</field>
+            <field name="value" eval="0.5"/>
+        </record>
+
+        <record id="jib_2025" model="ir.config_parameter">
+            <field name="key">jib_2025</field>
+            <field name="value" eval="0.5"/>
+        </record>
+
+        <record id="jib_2026" model="ir.config_parameter">
+            <field name="key">jib_2026</field>
+            <field name="value" eval="0.5"/>
+        </record>
+
+        <record id="ji_2021" model="ir.config_parameter">
+            <field name="key">ji_2021</field>
+            <field name="value" eval="0.3"/>
+        </record>
+
+        <record id="ji_2022" model="ir.config_parameter">
+            <field name="key">ji_2022</field>
+            <field name="value" eval="0.35"/>
+        </record>
+
+        <record id="ji_2023" model="ir.config_parameter">
+            <field name="key">ji_2023</field>
+            <field name="value" eval="0.4"/>
+        </record>
+
+        <record id="ji_2024" model="ir.config_parameter">
+            <field name="key">ji_2024</field>
+            <field name="value" eval="0.45"/>
+        </record>
+
+        <record id="ji_2025" model="ir.config_parameter">
+            <field name="key">ji_2025</field>
+            <field name="value" eval="0.48"/>
+        </record>
+
+        <record id="ji_2026" model="ir.config_parameter">
+            <field name="key">ji_2026</field>
+            <field name="value" eval="0.5"/>
+        </record>
+        
+        <record id="jnt_2021" model="ir.config_parameter">
+            <field name="key">jnt_2021</field>
+            <field name="value" eval="0.3"/>
+        </record>
+
+        <record id="jnt_2022" model="ir.config_parameter">
+            <field name="key">jnt_2022</field>
+            <field name="value" eval="0.4"/>
+        </record>
+
+        <record id="jnt_2023" model="ir.config_parameter">
+            <field name="key">jnt_2023</field>
+            <field name="value" eval="0.5"/>
+        </record>
+
+        <record id="jnt_2024" model="ir.config_parameter">
+            <field name="key">jnt_2024</field>
+            <field name="value" eval="0.6"/>
+        </record>
+
+        <record id="jnt_2025" model="ir.config_parameter">
+            <field name="key">jnt_2025</field>
+            <field name="value" eval="0.7"/>
+        </record>
+
+        <record id="jnt_2026" model="ir.config_parameter">
+            <field name="key">jnt_2026</field>
+            <field name="value" eval="0.9"/>
+        </record> -->
     </data>
 </odoo>

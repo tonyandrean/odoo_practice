@@ -1,77 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <!-- group for admin -->
-        <record id="module_category_admin" model="ir.module.category">
-                <field name="name">Renstra admin</field>
-                <field name="description">Group koordinator admin input renstra point 1</field>
-        </record>
-                <record id="group_admin" model="res.groups">
-                <field name="name">Group adminstrator</field>
-                <field name="category_id" ref="module_category_admin"></field>
-        </record>
-        <!-- group for koor point 1 -->
         <record id="module_category_input_1" model="ir.module.category">
-                <field name="name">Renstra point 1</field>
-                <field name="description">Group koordinator input renstra point 1</field>
+                <field name="name">Renstra Otoritas</field>
+                <field name="description">Renstra Otoritas</field>
         </record>
-        <record id="group_input" model="res.groups">
-                <field name="name">koordinator Renstra point 1</field>
+        <record id="group_koordinator" model="res.groups">
+                <field name="name">Menu Koordinator</field>
                 <field name="category_id" ref="module_category_input_1"></field>
         </record>
-        <record id="group_koordinator_kemahasiswaan_penalaranft" model="res.groups">
-                <field name="name">Koordinator Kemahasiswaan Bidang Penalaran Fakultas Teknik</field>
+        <record id="group_akreditasi" model="res.groups">
+                <field name="name">Menu Akreditasi</field>
                 <field name="category_id" ref="module_category_input_1"></field>
         </record>
-        <record id="group_koordinator_kemahasiswaan" model="res.groups">
-                <field name="name">Koordinator Bidang Kemahasiswaan FT</field>
+        <record id="group_survey" model="res.groups">
+                <field name="name">Menu Survey</field>
                 <field name="category_id" ref="module_category_input_1"></field>
         </record>
-                <record id="group_koordinator_ta_industri" model="res.groups">
-                <field name="name">Koordinator Tugas Akhir Teknik Industri</field>
+        <record id="group_publikasi" model="res.groups">
+                <field name="name">Menu Publikasi</field>
                 <field name="category_id" ref="module_category_input_1"></field>
         </record>
-        <record id="group_koordinator_ta_elektro" model="res.groups">
-                <field name="name">Koordinator Tugas Akhir Teknik Elektro</field>
+        <record id="group_hasil" model="res.groups">
+                <field name="name">Menu Hasil</field>
                 <field name="category_id" ref="module_category_input_1"></field>
         </record>
-        <record id="group_koordinator_ta_elektro" model="res.groups">
-                <field name="name">Koordinator Tugas Akhir Teknik Elektro</field>
+        <record id="group_config" model="res.groups">
+                <field name="name">Menu Configuration</field>
                 <field name="category_id" ref="module_category_input_1"></field>
-        </record>
-        <record id="group_koordinator_radio_ft" model="res.groups">
-                <field name="name">Koordinator Biro Radio FT</field>
-                <field name="category_id" ref="module_category_input_1"></field>
-        </record>
-        <record id="group_koordinator_radio_ft" model="res.groups">
-                <field name="name">Koordinator Biro Radio FT</field>
-                <field name="category_id" ref="module_category_input_1"></field>
-        </record>
-        <record id="group_koordinator_ta_biomedis" model="res.groups">
-                <field name="name">Koordinator Tugas Akhir Teknik Biomedis</field>
-                <field name="category_id" ref="module_category_input_1"></field>
-        </record>
-
-        <!-- Group koordinator renstra point 5 -->
-                <record id="module_category_input_5" model="ir.module.category">
-                <field name="name">Renstra point 5</field>
-                <field name="description">Group koordinator input renstra point 5</field>
-        </record>
-        <record id="group_koordinator_kerjasama_ft" model="res.groups">
-                <field name="name">Koordinator Kerjasama FT</field>
-                <field name="category_id" ref="module_category_input_5"></field>
-        </record>
-
-        <!-- group koordinator renstra poiint 234 -->
-        <record id="module_category_input_234" model="ir.module.category">
-                <field name="name">Renstra point 234</field>
-                <field name="description">Group koordinator input renstra point 2,3,4</field>
-        </record>
-        <record id="group_koordinator_penelitian_ft" model="res.groups">
-                <field name="name">Koordinator Bidang Penelitian dan Pengabdian FT</field>
-                <field name="category_id" ref="module_category_input_234"></field>
-        </record>
-        <record id="group_koordinator_penerbitan_jurnal" model="res.groups">
-                <field name="name">Koordinator Bidang Penerbitan Jurnal FT</field>
-                <field name="category_id" ref="module_category_input_234"></field>
         </record>
 </odoo>

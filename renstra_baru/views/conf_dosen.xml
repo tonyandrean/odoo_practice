@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- create master data dosen-->
+    <record id="master_dosen_form" model="ir.ui.view">
+        <field name="name">master_dosen_form</field>
+        <field name="model">dosen.dosen</field>
+        <field name="arch" type="xml">
+            <form string="Master Dosen">
+                <sheet>
+                    <group string="Master Dosen">
+                        <group>
+                            <field name="name" required='1'/>
+                            <field name="prodi" required='1'/>
+                            <field name="description" />
+                        </group>
+                        <group>
+                        </group>    
+                    </group>  
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="master_dosen_tree" model="ir.ui.view">
+        <field name="name">master_dosen_tree</field>
+        <field name="model">dosen.dosen</field>
+        <field name="arch" type="xml">
+            <tree string="master_dosen_tree">
+                <field name="name"></field>
+                <field name="prodi"></field>
+                <field name="description"></field>
+                <field name="write_date"></field>
+                <field name="write_uid"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="master_dosen_search" model="ir.ui.view">
+        <field name="name">master_dosen_search</field>
+        <field name="model">dosen.dosen</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"></field>
+                <field name="description"></field>
+                <field name="write_date"></field>
+                <field name="write_uid"></field> 
+            </search>
+        </field>
+    </record>
+
+    <record id="master_dosen_tree_action" model="ir.actions.act_window">
+        <field name="name">Master Dosen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dosen.dosen</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new data
+            </p>
+        </field>
+    </record>
+</odoo>

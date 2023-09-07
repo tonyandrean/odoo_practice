@@ -8,6 +8,7 @@ from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationE
 class koordinator_renstra(models.Model):
     # define the name of model and the descrption
     _name = 'renstra.koordinator'
+    _inherit = ['mail.thread']
     _description = 'Data Model koordinator renstra FT'
 
     # define fields for name
@@ -44,14 +45,12 @@ class koordinator_renstra(models.Model):
         string='Jabatan', selection=list_jabatan, required=True)
 
     # Define key and value of progdi for selection fields of progdi
-    list_progdi = [('industri', 'Teknik Industri'), ('biomedis',
-                                                     'Teknik Biomedis'), ('elektro', 'Teknik Elektro')]
+    list_progdi = [('industri', 'Teknik Industri'), 
+                   ('biomedis', 'Teknik Biomedis'), 
+                   ('elektro', 'Teknik Elektro')]
 
     program_studi = fields.Selection(
-        string='Program Study', selection=list_progdi, required=False)
-
-    state = fields.Selection(string='Status', selection=[(
-        'draft', 'Draft'), ('done', 'Done')], default='draft', required=True)
+        string='Program Studi', selection=list_progdi, required=False)
 
     # create  user_id  and id number using sequence_id
     @api.model
@@ -99,31 +98,3 @@ class koordinator_renstra(models.Model):
     #         vals.update({'id_user': new_user.id})
     #     res = super(koordinator_renstra, self).create(vals)
     #     return super(koordinator_renstra, self).create(vals)
-
-    # chage state bar if mark as done
-    # @api.onchange('state')
-    def set_to_ready_upload(self):
-        if self.state == 'draft':
-            self.write({
-                'state': 'done'
-            })
-            return {
-                'effect': {
-                    'fadeout': 'slow',
-                    'message': 'marked as done',
-                    'type': 'rainbow_man'
-                }
-            }
-        else:
-            raise UserError('Status bukan draft tidak bisa diproses')
-
-    def action_confirm(self):
-        for rec in self:
-            rec.state = 'done'
-            return {
-                'effect': {
-                    'fadeout': 'slow',
-                    'message': 'marked as done',
-                    'type': 'rainbow_man'
-                }
-            }

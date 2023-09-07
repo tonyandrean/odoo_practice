@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="perpustakaan"
+        name="Perpustakaan"
+        sequence="0" />
+
+    <!-- MENU AKUN PERPUSTAKAAN -->
+    <menuitem
+        id="akun_perpus"
+        name="Daftar Akun"
+        sequence="0"
+        parent="perpustakaan" />
+
+    <menuitem
+        id="daftar_anggota"
+        name="Anggota Perpustakaan"
+        action="info_anggota_action"
+        parent="akun_perpus"
+        sequence="0" />
+
+    <menuitem
+        id="daftar_admin"
+        name="Pustakawan"
+        action="info_admin_action"
+        parent="akun_perpus"
+        sequence="0" />
+
+    <!-- MENU DAFTAR BUKU -->
+    <menuitem
+        id="daftar_buku"
+        name="Daftar Buku"
+        action="daftar_buku_action"
+        parent="perpustakaan"
+        sequence="0" />
+
+    <!-- MENU PEMINJAMAN BUKU -->
+    <menuitem
+        id="pinjam_buku"
+        name="Peminjaman Buku"
+        action="pinjam_buku_action"
+        parent="perpustakaan"
+        sequence="0" />
+
+    <!-- MENU MASTER DATA -->
+    <menuitem
+        id="master_data"
+        name="Master Data"
+        sequence="1"
+        parent="perpustakaan" />
+
+    <menuitem
+        id="master_penulis"
+        name="Master Penulis"
+        action="master_penulis_action"
+        parent="master_data"
+        sequence="0" />
+
+    <menuitem
+        id="master_penerbit"
+        name="Master Penerbit"
+        action="master_penerbit_action"
+        parent="master_data"
+        sequence="0" />
+
+    <menuitem
+        id="master_kategori"
+        name="Master Kategori"
+        action="master_kategori_action"
+        parent="master_data"
+        sequence="0" />
+
+</odoo>

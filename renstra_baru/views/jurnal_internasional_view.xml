@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!--Define tree of form views-->
+    <record id="jurnal_internasional_view_tree" model="ir.ui.view">
+        <field name="name">jurnal_internasional.view.tree</field>
+        <field name="model">jurnal.internasional</field>
+        <field name="arch" type="xml">
+            <tree string="Indikator Kinerja Utama">
+                <field name="penulis_id"></field>
+                <field name="judul"></field>
+                <field name="nama_jurnal"></field>
+                <field name="publisher"></field>
+                <field name="indek_id"></field>
+                <field name="kuartil"></field>
+                <field name="isbn"></field>
+                <field name="tahun"></field>
+                <field name="volume"></field>
+                <field name="nomor"></field>
+                <field name="url" widget="url"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!--create
+    form view from the models fields-->
+    <record id="jurnal_internasional_view_form" model="ir.ui.view">
+        <field name="name">jurnal_internasional.view.form</field>
+        <field name="model">jurnal.internasional</field>
+        <field name="arch" type="xml">
+            <form string="Indikator Kinerja Utama">
+                <sheet>
+                    <group string="Input Jurnal Internasional">
+                        <group>
+                            <field name="penulis_id" options="{'no_create': True}" widget="many2many_tags" required='1'></field>
+                            <field name="judul"></field>
+                            <field name="nama_jurnal"></field>
+                            <field name="publisher"></field>
+                            <field name="indek_id" widget="many2many_tags"></field>
+                            <field name="index_kosong" invisible='1'></field>
+                            <field name="kuartil" attrs="{'readonly': [('index_kosong', '=', False)]}"></field>
+                        </group>
+                        <group>
+                            <field name="isbn"></field>
+                            <field name="tahun"></field>
+                            <field name="volume"></field>
+                            <field name="nomor"></field>
+                            <field name="url" widget="url"></field>
+                            <field name="documents" filename="file_name"></field>
+                            <field name="file_name" invisible="1"></field>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="jurnal_internasional_view_search" model="ir.ui.view">
+        <field name="name">jurnal_internasional.view.search</field>
+        <field name="model">jurnal.internasional</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="penulis_id"></field>
+                <field name="judul"></field>
+                <field name="nama_jurnal"></field>
+                <field name="publisher"></field>
+                <field name="indek_id"></field>
+                <field name="kuartil"></field>
+                <field name="isbn"></field>
+                <field name="tahun"></field>
+                <field name="volume"></field>
+                <field name="nomor"></field>
+                <field name="url" widget="url"></field>
+                <group expand="0" string="Group By">
+                        <filter name="group_by_tahun" string="group_by_tahun"  context="{'group_by': 'tahun'}" /> 
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- create action windows from models fields -->
+    <record id="action_jurnal_internasional" model="ir.actions.act_window">
+        <field name="name">Input Jurnal Internasional</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">jurnal.internasional</field>
+        <field name="view_mode">tree,form,graph,pivot,kanban</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new Data
+            </p>
+        </field>
+    </record>
+
+</odoo>

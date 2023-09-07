@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hitung_ji_view_tree" model="ir.ui.view">
+        <field name="name">hitung_ji.view.tree</field>
+        <field name="model">hitung.ji</field>
+        <field name="arch" type="xml">
+            <tree string="Jumlah jurnal internasional pertahun bagi jumlah dosen" create="false" edit="false" delete="false">
+                <field name="tahun"></field>
+                <field name="jumlah_record"></field>
+                <field name="jumlah_dosen"></field>
+                <field name="hasil"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hitung_internasional" model="ir.actions.act_window">
+        <field name="name">Hitung Jurnal Internasional</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hitung.ji</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Data Unavailable
+            </p>
+        </field>
+    </record>
+
+</odoo>
+<!-- <record id="hitung_internasional_view_tree" model="ir.ui.view">
+        <field name="name">hitung_internasional.view.tree</field>
+        <field name="model">hitung.internasional</field>
+        <field name="arch" type="xml">
+            <tree string="Jumlah dosen bagi jurnal internasional">
+                <field name="jumlah_dosen"></field>
+                <field name="jurnal_2021"></field>
+                <field name="jurnal_2022"></field>
+                <field name="jurnal_2023"></field>
+                <field name="jurnal_2024"></field>
+                <field name="jurnal_2025"></field>
+                <field name="jurnal_2026"></field>
+                <field
+                name="result"></field>
+                <field name="result_2021"></field>
+                <field name="result_2022"></field>
+                <field name="result_2023"></field>
+                <field name="result_2024"></field>
+                <field name="result_2025"></field>
+                <field name="result_2026"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hitung_internasional_view_form" model="ir.ui.view">
+        <field name="name">hitung_internasional.view.form</field>
+        <field name="model">hitung.internasional</field>
+        <field name="arch" type="xml">
+            <form string="Jumlah dosen bagi jurnal internasional">
+                <sheet>
+                    <group>
+                        <field name="jumlah_dosen"></field>
+                        <field name="jurnal_2021"></field>
+                        <field name="jurnal_2022"></field>
+                        <field name="jurnal_2023"></field>
+                        <field name="jurnal_2024"></field>
+                        <field name="jurnal_2025"></field>
+                        <field name="jurnal_2026"></field>
+                    </group>
+                    <group>
+                        <field
+                        name="result"></field>
+                        <field name="result_2021"></field>
+                        <field name="result_2022"></field>
+                        <field name="result_2023"></field>
+                        <field name="result_2024"></field>
+                        <field name="result_2025"></field>
+                        <field name="result_2026"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hitung_internasional" model="ir.actions.act_window">
+        <field name="name">Hitung Jurnal Internasional</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hitung.internasional</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new Data
+            </p>
+        </field>
+    </record> -->

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Master Penulis -->
+    <record id="master_penulis_tree" model="ir.ui.view">
+        <field name="name">master_penulis.tree</field>
+        <field name="model">master.penulis</field>
+        <field name="arch" type="xml">
+            <tree string="Master Data Penulis">
+                <field name="m_penulis"></field>
+                <field name="description"></field>
+                <field name="write_date"></field>
+                <field name="write_uid"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="master_penulis_view_form" model="ir.ui.view">
+        <field name="name">master_penulis.view.form</field>
+        <field name="model">master.penulis</field>
+        <field name="arch" type="xml">
+            <form string="Master Data Penulis">
+                <sheet>
+                    <group>
+                        <field name="m_penulis"></field>
+                        <field name="description"></field>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="master_penulis_action" model="ir.actions.act_window">
+        <field name="name">Master Data Penulis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">master.penulis</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new data
+            </p>
+        </field>
+    </record>
+
+    <!-- Master Penerbit -->
+    <record id="master_penerbit_view_tree" model="ir.ui.view">
+        <field name="name">master_penerbit.view.tree</field>
+        <field name="model">master.penerbit</field>
+        <field name="arch" type="xml">
+            <tree string="Master Data Penerbit">
+                <field name="m_penerbit"></field>
+                <field name="description"></field>
+                <field name="write_date"></field>
+                <field name="write_uid"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="master_penerbit_view_form" model="ir.ui.view">
+        <field name="name">master_penerbit.view.form</field>
+        <field name="model">master.penerbit</field>
+        <field name="arch" type="xml">
+            <form string="Master Data Penerbit">
+                <sheet>
+                    <group>
+                        <field name="m_penerbit"></field>
+                        <field name="description"></field>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="master_penerbit_action" model="ir.actions.act_window">
+        <field name="name">Master Data Penerbit</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">master.penerbit</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new data
+            </p>
+        </field>
+    </record>
+
+    <!-- Master Penerbit -->
+    <record id="master_kategori_view_tree" model="ir.ui.view">
+        <field name="name">master_kategori.view.tree</field>
+        <field name="model">master.kategori</field>
+        <field name="arch" type="xml">
+            <tree string="Master Data Kategori">
+                <field name="m_kategori"></field>
+                <field name="description"></field>
+                <field name="write_date"></field>
+                <field name="write_uid"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="master_kategori_view_form" model="ir.ui.view">
+        <field name="name">master_kategori.view.form</field>
+        <field name="model">master.kategori</field>
+        <field name="arch" type="xml">
+            <form string="Master Data Kategori">
+                <sheet>
+                    <group>
+                        <field name="m_kategori"></field>
+                        <field name="description"></field>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="master_kategori_action" model="ir.actions.act_window">
+        <field name="name">Master Data Kategori</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">master.kategori</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new data
+            </p>
+        </field>
+    </record>
+
+</odoo>

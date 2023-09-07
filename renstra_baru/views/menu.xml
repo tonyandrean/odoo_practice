@@ -4,39 +4,127 @@
     <menuitem
         id="renstra_root_menu"
         name="Renstra"
-        sequence="0" />
+        sequence="1" />
 
+<!-- KOORDINATOR-->
     <menuitem
         id="koordinator"
         name="Koordinator"
         sequence="0"
         parent="renstra_root_menu"
+        groups="renstra_baru.group_koordinator"
         action="action_renstra_koordinator" />
 
+<!-- AKREDITASI-->
     <menuitem
         id="akreditasi"
         name="Akreditasi"
         sequence="0"
-        parent="renstra_root_menu" />
+        groups="renstra_baru.group_akreditasi"
+        parent="renstra_root_menu"
+        action="action_akreditasi_ban_pt" />
 
-    <menuitem
+    <!-- <menuitem
         id="akreditasi_dashboard"
         name="Dashboard Akreditasi"
         parent="akreditasi"
         sequence="0"
-        action="action_dashboard_akreditasi" />
+        action="action_dashboard_akreditasi" /> -->
 
-    <menuitem
+    <!-- <menuitem
         id="akreditasi_input"
         name="Input Data Akreditasi"
         sequence="0"
         parent="akreditasi"
-        action="action_akreditasi_ban_pt" />
+        groups="renstra_baru.group_akreditasi"/> -->
+
+<!-- CONFIGURATION MENU-->
+    <menuitem
+        id="config"
+        name="Configuration"
+        sequence="1"
+        groups="renstra_baru.group_config"
+        parent="renstra_root_menu" />
+
+    <!--submenu
+    akreditasi-->
+    <!-- <menuitem
+        id="akreditasi_conf"
+        name="Configuration"
+        sequence="1000"
+        parent="akreditasi" 
+        groups="renstra_baru.group_config"/> -->
+
 
     <menuitem
-        id="survey"
-        name="Input Survey Kepuasan"
+        id="akreditasi_master_fakultas"
+        name="Master Fakultas"
+        sequence="1"
+        parent="config"
+        groups="renstra_baru.group_config"
+        action="master_fakultas_tree_action" />
+
+    <menuitem
+        id="akreditasi_master_jurusan"
+        name="Master Jurusan"
+        sequence="2"
+        parent="config"
+        groups="renstra_baru.group_config"
+        action="master_jurusan_tree_action" />
+
+    <menuitem
+        id="dosen_conf"
+        name="Configuration"
+        sequence="1000"
+        parent="config" 
+        groups="renstra_baru.group_config"/>
+
+    <menuitem
+        id="jurnal_master_dosen"
+        name="Master Dosen"
+        sequence="1"
+        parent="config"
+        groups="renstra_baru.group_config"
+        action="master_dosen_tree_action" />
+
+    <menuitem
+        id="hitung_rens"
+        name="Hitung Jurnal Bereputasi"
+        parent="config"
+        groups="renstra_baru.group_config"
         sequence="0"
+        action="action_hitung_rens" />
+
+    <menuitem
+        id="hitung_internasional"
+        name="Hitung Jurnal Internasional"
+        parent="config"
+        groups="renstra_baru.group_config"
+        sequence="0"
+        action="action_hitung_internasional" />
+
+    <menuitem
+        id="hitung_nasional"
+        name="Hitung Jurnal Nasional"
+        parent="config"
+        groups="renstra_baru.group_config"
+        sequence="0"
+        action="action_hitung_nasional" />
+
+    <menuitem
+        id="rasio_parameter"
+        name="Rasio Parameter"
+        parent="config"
+        groups="renstra_baru.group_config"
+        sequence="0"
+        action="action_rasio_parameter" />
+
+<!-- SURVEY KEPUASAN-->
+    <menuitem
+        id="survey"
+        name="Survey Kepuasan"
+        sequence="0"
+        groups="renstra_baru.group_survey"
         parent="renstra_root_menu" />
 
     <menuitem
@@ -44,6 +132,7 @@
         name="Input Survey Dosen"
         sequence="0"
         parent="survey"
+        groups="renstra_baru.group_survey"
         action="action_survey_kepuasan" />
 
     <menuitem
@@ -51,6 +140,7 @@
         name="Input Survey Tenaga Pendidik"
         sequence="0"
         parent="survey"
+        groups="renstra_baru.group_survey"
         action="action_survey_kepuasan_tenagakependidikan" />
 
     <!-- <menuitem
@@ -73,4 +163,87 @@
         sequence="0"
         action="action_dashboard_kelulusan" /> -->
 
+    <!-- <menuitem
+        id="input_point21"
+        name="Meningkatnya Kualitas dan Kuantitas Penelitian"
+        parent="renstra_root_menu"
+        sequence="0"/>
+
+    <menuitem
+        id="kluster_kinerja"
+        name="Input Kluster Kinerja Penelitian"
+        parent="input_point21"
+        sequence="0"
+        action="action_kluster_kinerja_kemenristekdikti" />
+
+    <menuitem
+        id="peringkat_pt_sinta"
+        name="Input Peringkat PT versi Sinta"
+        parent="input_point21"
+        sequence="0"
+        action="action_peringkat_pt_sinta" /> -->
+
+<!-- PUBLIKASI JURNAL-->
+    <menuitem
+        id="input_publikasi_jurnal"
+        name="Publikasi Jurnal"
+        groups="renstra_baru.group_publikasi"
+        parent="renstra_root_menu"
+        sequence="0" />
+
+    <menuitem
+        id="jurnal_reputasi"
+        name="Input Jurnal Internasional Bereputasi"
+        parent="input_publikasi_jurnal"
+        groups="renstra_baru.group_publikasi"
+        sequence="0"
+        action="action_jurnal_reputasi" />
+
+    <menuitem
+        id="jurnal_internasional"
+        name="Input Jurnal Internasional"
+        parent="input_publikasi_jurnal"
+        groups="renstra_baru.group_publikasi"
+        sequence="0"
+        action="action_jurnal_internasional" />
+
+    <menuitem
+        id="jurnal_nasional"
+        name="Input Jurnal Nasional Terakreditasi"
+        parent="input_publikasi_jurnal"
+        groups="renstra_baru.group_publikasi"
+        sequence="0"
+        action="action_jurnal_nasional" />
+
+<!-- RENSTRA HASIL-->
+    <menuitem
+        id="renstra_hasil"
+        name="Renstra Hasil"
+        groups="renstra_baru.group_hasil"
+        parent="renstra_root_menu"
+        sequence="0" />
+
+    <menuitem
+        id="hasil_reputasi"
+        name="Hasil Bagi Jurnal Bereputasi"
+        groups="renstra_baru.group_hasil"
+        parent="renstra_hasil"
+        sequence="0"
+        action="action_hasil_reputasi" />
+    
+    <menuitem
+        id="hasil_internasional"
+        name="Hasil Bagi Jurnal Internasional"
+        groups="renstra_baru.group_hasil"
+        parent="renstra_hasil"
+        sequence="0"
+        action="action_hasil_internasional" />
+
+    <menuitem
+        id="hasil_nasional"
+        name="Hasil Bagi Jurnal Nasional"
+        groups="renstra_baru.group_hasil"
+        parent="renstra_hasil"
+        sequence="0"
+        action="action_hasil_nasional" />
 </odoo>

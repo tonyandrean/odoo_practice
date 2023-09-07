@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Define tree of tree views-->
+    <record id="hasil_ji_view_tree" model="ir.ui.view">
+        <field name="name">hasil_ji.view.tree</field>
+        <field name="model">hasil.ji</field>
+        <field name="arch" type="xml">
+            <tree string="Jumlah dosen bagi jurnal internasional" create="false" edit="false" delete="false">
+                <field name="tahun"></field>
+                <field name="parameter"></field>
+                <field name="hasil"></field>
+                 <field name="status" widget="badge" 
+                        decoration-success="status == '1'"
+                        decoration-danger="status == '2'" />    
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hasil_internasional" model="ir.actions.act_window">
+        <field name="name">Rasio jumlah judul publikasi pada jurnal internasional per dosen per tahun</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hasil.ji</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Data Unavailable
+            </p>
+        </field>
+    </record>
+
+</odoo>
+<!-- <record id="hasil_internasional_view_tree" model="ir.ui.view">
+        <field name="name">hasil_internasional.view.tree</field>
+        <field name="model">hasil.internasional</field>
+        <field name="arch" type="xml">
+            <tree string="Hasil bagi jurnal internasional">
+                <field name="jurnal_2021"></field>
+                <field name="jurnal_2022"></field>
+                <field name="jurnal_2023"></field>
+                <field name="jurnal_2024"></field>
+                <field name="jurnal_2025"></field>
+                <field name="jurnal_2026"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hasil_internasional_view_form" model="ir.ui.view">
+        <field name="name">hasil_internasional.view.form</field>
+        <field name="model">hasil.internasional</field>
+        <field name="arch" type="xml">
+            <form string="Hasil bagi jurnal internasional">
+                <sheet>
+                    <group>
+                        <field name="jurnal_2021"></field>
+                        <field name="jurnal_2022"></field>
+                        <field name="jurnal_2023"></field>
+                        <field name="jurnal_2024"></field>
+                        <field name="jurnal_2025"></field>
+                        <field name="jurnal_2026"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hasil_internasional" model="ir.actions.act_window">
+        <field name="name">Hasil bagi jurnal internasional</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hasil.internasional</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new Data
+            </p>
+        </field>
+    </record> -->
