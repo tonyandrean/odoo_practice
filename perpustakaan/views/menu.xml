@@ -9,7 +9,7 @@
     <!-- MENU AKUN PERPUSTAKAAN -->
     <menuitem
         id="akun_perpus"
-        name="Daftar Akun"
+        name="Akun"
         sequence="0"
         parent="perpustakaan" />
 

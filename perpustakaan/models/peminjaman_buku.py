@@ -11,8 +11,12 @@ class PinjamBuku (models.Model):
 
     pj_judul_id = fields.Many2one('daftar.buku', string='Judul Buku', required=True)
     pj_penulis_id = fields.Many2many('master.penulis', string='Penulis', compute='_compute_penulis')
+    pj_peminjam_id = fields.Many2one('res.users', string='Peminjam', default=lambda self: self.env.user)
     pj_tgl_pinjam = fields.Datetime(string='Tanggal Pinjam', default=fields.Datetime.now)
     pj_tgl_balik = fields.Datetime(string='Tanggal Kembali', default=lambda self: fields.Datetime.now() + timedelta(days=7))
+    status_bar = fields.Selection(selection=[('draft', 'Draft'), ('in_progress', 'In Progress'), 
+                                             ('return', 'Return')], string='Status', required=True, 
+                                             copy=False, tracking=True, default='draft')
 
     #otomatis isi field penulis
     @api.depends('pj_judul_id')
@@ -22,3 +26,18 @@ class PinjamBuku (models.Model):
                 record.pj_penulis_id = record.pj_judul_id.bk_penulis_id
             else:
                 record.pj_penulis_id = False
+
+    #mengatur status bar dengan button
+    def button_in_progress(self):
+        if self.pj_judul_id.bk_stock <= 0:
+            raise UserError('Maaf stok buku sedang habis, silahkan coba lain waktu.')
+        else:
+            self.pj_judul_id.write({'bk_stock': self.pj_judul_id.bk_stock - 1})
+            self.write({'status_bar': 'in_progress'})
+
+    #mengembalikan stok buku ketika record dihapus
+    def unlink(self):
+        for record in self:
+            if record.pj_judul_id:
+                record.pj_judul_id.write({'bk_stock': record.pj_judul_id.bk_stock + 1})
+        return super(PinjamBuku, self).unlink()

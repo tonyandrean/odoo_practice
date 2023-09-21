@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="module_category_input" model="ir.module.category">
+        <field name="name">Perpustakaan Otoritas</field>
+        <field name="description">Hak akses menu perpustakaan</field>
+    </record>
+
+    <record id="group_akun" model="res.groups">
+        <field name="name">Menu Akun</field>
+        <field name="category_id" ref="module_category_input"></field>
+    </record>
+
+    <record id="group_daftar_buku" model="res.groups">
+        <field name="name">Menu Daftar Buku</field>
+        <field name="category_id" ref="module_category_input"></field>
+    </record>
+
+    <record id="group_peminjaman" model="res.groups">
+        <field name="name">Menu Peminjaman</field>
+        <field name="category_id" ref="module_category_input"></field>
+    </record>
+
+    <record id="group_master_data" model="res.groups">
+        <field name="name">Menu Master Data</field>
+        <field name="category_id" ref="module_category_input"></field>
+    </record>
+
+</odoo>

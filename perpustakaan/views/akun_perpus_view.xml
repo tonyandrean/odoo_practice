@@ -83,7 +83,7 @@
                             <field name="ad_alamat"></field>
                         </group>
                         <group>
-                            <field name="ad_email"></field>
+                            <field name="ad_email" widget="email"></field>
                             <field name="ad_id_number" readonly="1"></field>
                             <field name="ad_id_user" readonly="1"></field>
                         </group>

@@ -8,8 +8,12 @@
             <tree string="Peminjaman Buku Perpustakaan">
                 <field name="pj_judul_id"></field>
                 <field name="pj_penulis_id"></field>
+                <field name="pj_peminjam_id"></field>
                 <field name="pj_tgl_pinjam"></field>
                 <field name="pj_tgl_balik"></field>
+                <field name="status_bar" widget="badge" decoration-danger="status_bar == 'draft'"  
+                                                        decoration-info="status_bar == 'in_progress'"
+                                                        decoration-success="status_bar == 'return'" ></field>
             </tree>
         </field>
     </record>
@@ -19,6 +23,10 @@
         <field name="model">pinjam.buku</field>
         <field name="arch" type="xml">
             <form string="Input Data Peminjaman">
+                <header>
+                    <button string="Pinjam Buku" name="button_in_progress" type="object" class="oe_highlight"/>
+                    <field name="status_bar" widget="statusbar" readonly="1"></field>
+                </header>
                 <sheet>
                     <group string="Form Peminjaman Buku">
                         <group>
@@ -26,6 +34,7 @@
                             <field name="pj_penulis_id" widget="many2many_tags"></field>
                         </group>
                         <group>
+                            <field name="pj_peminjam_id" readonly="1"></field>
                             <field name="pj_tgl_pinjam" readonly="1"></field>
                             <field name="pj_tgl_balik" readonly="1"></field>
                         </group>
