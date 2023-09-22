@@ -1,9 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access.info_anggota,access_info_anggota,model_info_anggota,group_akun,1,1,1,1
-access.info_admin,access_info_admin,model_info_admin,group_akun,1,1,1,1
-access.daftar_buku,access_daftar_buku,model_daftar_buku,group_daftar_buku,1,1,1,1
-access.pinjam_buku,access_pinjam_buku,model_pinjam_buku,group_peminjaman,1,1,1,1
+access.info_anggota,access_info_anggota,model_info_anggota,,1,1,1,1
+access.info_admin,access_info_admin,model_info_admin,,1,1,1,1
+access.daftar_buku,access_daftar_buku,model_daftar_buku,,1,1,1,1
+access.pinjam_buku,access_pinjam_buku,model_pinjam_buku,,1,1,1,1
 
-access.master_penulis,access_master_penulis,model_master_penulis,group_master_data,1,1,1,1
-access.master_penerbit,access_master_penerbit,model_master_penerbit,group_master_data,1,1,1,1
-access.master_kategori,access_master_kategori,model_master_kategori,group_master_data,1,1,1,1
+access.master_penulis,access_master_penulis,model_master_penulis,,1,1,1,1
+access.master_penerbit,access_master_penerbit,model_master_penerbit,,1,1,1,1
+access.master_kategori,access_master_kategori,model_master_kategori,,1,1,1,1

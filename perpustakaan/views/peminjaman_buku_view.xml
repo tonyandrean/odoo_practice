@@ -24,7 +24,10 @@
         <field name="arch" type="xml">
             <form string="Input Data Peminjaman">
                 <header>
-                    <button string="Pinjam Buku" name="button_in_progress" type="object" class="oe_highlight"/>
+                    <button string="Pinjam Buku" name="button_in_progress" type="object" class="oe_highlight" 
+                            attrs="{'invisible': [('status_bar', 'not in', ('draft'))]}"/>
+                    <button string="Kembalikan" name="button_return" type="object" class="oe_highlight" 
+                            attrs="{'invisible': [('status_bar', 'not in', ('in_progress'))]}"/>
                     <field name="status_bar" widget="statusbar" readonly="1"></field>
                 </header>
                 <sheet>
@@ -45,6 +48,24 @@
                     <field name="message_ids" widget="mail_thread" />
                 </div>
             </form>
+        </field>
+    </record>
+
+    <record id="pinjam_buku_view_search" model="ir.ui.view">
+        <field name="name">pinjam_buku.view.search</field>
+        <field name="model">pinjam.buku</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="pj_judul_id"></field>
+                <field name="pj_penulis_id"></field>
+                <field name="pj_peminjam_id"></field>
+                <field name="pj_tgl_pinjam"></field>
+                <field name="pj_tgl_balik"></field>
+                <field name="status_bar"></field>
+                <filter name="filter_draft" string="Draft" domain="[('status_bar', '=', 'draft')]"/>
+                <filter name="filter_in_progress" string="In Progress" domain="[('status_bar', '=', 'in_progress')]"/>
+                <filter name="filter_return" string="Return" domain="[('status_bar', '=', 'return')]"/>
+            </search>
         </field>
     </record>
 

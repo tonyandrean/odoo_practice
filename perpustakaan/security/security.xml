@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Kategori Modul -->
     <record id="module_category_input" model="ir.module.category">
         <field name="name">Perpustakaan Otoritas</field>
         <field name="description">Hak akses menu perpustakaan</field>
     </record>
 
+    <!-- Grup Akses User -->
+    <record id="group_user" model="res.groups">
+        <field name="name">User Perpustakaan</field>
+        <field name="category_id" ref="module_category_input" />
+    </record>
+
+    <!-- Izin untuk Admin -->
     <record id="group_akun" model="res.groups">
         <field name="name">Menu Akun</field>
         <field name="category_id" ref="module_category_input"></field>
@@ -26,4 +34,25 @@
         <field name="category_id" ref="module_category_input"></field>
     </record>
 
+    <!-- Izin untuk User -->
+    <record id="access_user_daftar_buku" model="ir.model.access">
+        <field name="name">Menu User Daftar Buku</field>
+        <field name="model_id" ref="model_daftar_buku"></field>
+        <field name="group_id" ref="group_user"></field>
+        <field name="perm_read" eval="1"></field>
+        <field name="perm_write" eval="1"></field>
+        <field name="perm_create" eval="0"></field>
+        <field name="perm_unlink" eval="0"></field>
+    </record>
+
+    <record id="access_user_pinjam_buku" model="ir.model.access">
+        <field name="name">Menu User Peminjaman Buku</field>
+        <field name="model_id" ref="model_pinjam_buku"></field>
+        <field name="group_id" ref="group_user"></field>
+        <field name="perm_read" eval="1"></field>
+        <field name="perm_write" eval="0"></field>
+        <field name="perm_create" eval="1"></field>
+        <field name="perm_unlink" eval="0"></field>
+    </record>
+    
 </odoo>
