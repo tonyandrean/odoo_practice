@@ -8,12 +8,14 @@
             <tree string="Peminjaman Buku Perpustakaan">
                 <field name="pj_judul_id"></field>
                 <field name="pj_penulis_id"></field>
-                <field name="pj_peminjam_id"></field>
+                <field name="pj_id_number"></field>
                 <field name="pj_tgl_pinjam"></field>
-                <field name="pj_tgl_balik"></field>
-                <field name="status_bar" widget="badge" decoration-danger="status_bar == 'draft'"  
+                <field name="pj_tgl_balik" decoration-success="status_bar=='return'"
+                                            decoration-danger="status_bar=='overdue'"></field>
+                <field name="status_bar" widget="badge" decoration-muted="status_bar == 'draft'"  
                                                         decoration-info="status_bar == 'in_progress'"
-                                                        decoration-success="status_bar == 'return'" ></field>
+                                                        decoration-success="status_bar == 'return'" 
+                                                        decoration-danger="status_bar == 'overdue'" ></field>
             </tree>
         </field>
     </record>
@@ -28,7 +30,7 @@
                             attrs="{'invisible': [('status_bar', 'not in', ('draft'))]}"/>
                     <button string="Kembalikan" name="button_return" type="object" class="oe_highlight" 
                             attrs="{'invisible': [('status_bar', 'not in', ('in_progress'))]}"/>
-                    <field name="status_bar" widget="statusbar" readonly="1"></field>
+                    <field name="status_bar" widget="statusbar" statusbar_visible="draft,in_progress,return"></field>
                 </header>
                 <sheet>
                     <group string="Form Peminjaman Buku">
@@ -39,7 +41,7 @@
                         <group>
                             <field name="pj_peminjam_id" readonly="1"></field>
                             <field name="pj_tgl_pinjam" readonly="1"></field>
-                            <field name="pj_tgl_balik" readonly="1"></field>
+                            <field name="pj_maks_balik" readonly="1"></field>
                         </group>
                     </group>
                 </sheet>
@@ -60,11 +62,14 @@
                 <field name="pj_penulis_id"></field>
                 <field name="pj_peminjam_id"></field>
                 <field name="pj_tgl_pinjam"></field>
-                <field name="pj_tgl_balik"></field>
+                <field name="pj_maks_balik"></field>
                 <field name="status_bar"></field>
                 <filter name="filter_draft" string="Draft" domain="[('status_bar', '=', 'draft')]"/>
                 <filter name="filter_in_progress" string="In Progress" domain="[('status_bar', '=', 'in_progress')]"/>
                 <filter name="filter_return" string="Return" domain="[('status_bar', '=', 'return')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_peminjam" string="Group By Peminjam" context="{'group_by': 'pj_peminjam_id'}" />
+                </group>
             </search>
         </field>
     </record>
