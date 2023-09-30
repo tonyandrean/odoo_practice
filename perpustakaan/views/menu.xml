@@ -38,35 +38,43 @@
     <!-- MENU PEMINJAMAN BUKU -->
     <menuitem
         id="pinjam_buku"
-        name="Peminjaman Buku"
+        name="Peminjaman"
         action="pinjam_buku_action"
+        parent="perpustakaan"
+        sequence="0" />
+
+    <!-- MENU LAPORAN PEMINJAMAN -->
+    <menuitem
+        id="laporan_pinjam"
+        name="Laporan"
+        action="laporan_pinjam_action"
         parent="perpustakaan"
         sequence="0" />
 
     <!-- MENU MASTER DATA -->
     <menuitem
         id="master_data"
-        name="Master Data"
+        name="Konfigurasi"
         sequence="1"
         parent="perpustakaan" />
 
     <menuitem
         id="master_penulis"
-        name="Master Penulis"
+        name="Penulis"
         action="master_penulis_action"
         parent="master_data"
         sequence="0" />
 
     <menuitem
         id="master_penerbit"
-        name="Master Penerbit"
+        name="Penerbit"
         action="master_penerbit_action"
         parent="master_data"
         sequence="0" />
 
     <menuitem
         id="master_kategori"
-        name="Master Kategori"
+        name="Kategori"
         action="master_kategori_action"
         parent="master_data"
         sequence="0" />

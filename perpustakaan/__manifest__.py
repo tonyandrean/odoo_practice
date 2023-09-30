@@ -28,6 +28,7 @@
         'views/daftar_buku_view.xml',
         'views/master_data_view.xml',
         'views/peminjaman_buku_view.xml',
+        'views/laporan_peminjaman_view.xml',
         'views/menu.xml'
     ],
 

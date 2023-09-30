@@ -7,6 +7,9 @@ class DaftarBuku (models.Model):
     _inherit = ['mail.thread']
     _description = 'Daftar Buku Perpustakaan'
     _rec_name='bk_judul'
+    _sql_constraints = [
+        ('bk_judul_uniq', 'unique(bk_judul)', 'Judul Buku already exist !')
+    ]
 
     bk_judul = fields.Char(string='Judul Buku', required=True)
     bk_penulis_id = fields.Many2many('master.penulis', string='Penulis', required=True)

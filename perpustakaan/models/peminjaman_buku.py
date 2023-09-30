@@ -11,27 +11,19 @@ class PinjamBuku (models.Model):
     _rec_name = 'pj_id_number'
 
     pj_judul_id = fields.Many2one('daftar.buku', string='Judul Buku', required=True)
-    pj_penulis_id = fields.Many2many('master.penulis', string='Penulis', compute='_compute_penulis')
+    pj_penulis_id = fields.Many2many(string='Penulis', related='pj_judul_id.bk_penulis_id')
+    pj_kategori_id = fields.Many2one(string='Kategori', related='pj_judul_id.bk_kategori_id')
     pj_peminjam_id = fields.Many2one('res.users', string='Peminjam', default=lambda self: self.env.user)
-    pj_id_number = fields.Char(string='ID Number')
+    pj_id_number = fields.Char(string='ID Peminjaman')
     pj_tgl_pinjam = fields.Datetime(string='Tanggal Pinjam', default=fields.Datetime.now)
     pj_tgl_balik = fields.Datetime(string='Tanggal Pengembalian')
     pj_maks_balik = fields.Datetime(string='Maksimal Pengembalian', default=lambda
-                                    self: fields.Datetime.now() + timedelta(minutes=1))
+                                    self: fields.Datetime.now() + timedelta(days=7))
     status_bar = fields.Selection(selection=[('draft', 'Draft'), ('in_progress', 'In Progress'),
                                              ('return', 'Return'), ('overdue', 'Overdue')],
                                              string='Status', required=True, copy=False, tracking=True, default='draft')
 
-# otomatis isi field penulis
-    @api.depends('pj_judul_id')
-    def _compute_penulis(self):
-        for record in self:
-            if record.pj_judul_id:
-                record.pj_penulis_id = record.pj_judul_id.bk_penulis_id
-            else:
-                record.pj_penulis_id = False
-
-#membuat id peminjaman
+# membuat id peminjaman
     @api.model
     def create(self, vals):
         vals['pj_id_number'] = self.env['ir.sequence'].next_by_code('pinjam.buku')

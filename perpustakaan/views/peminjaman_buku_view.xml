@@ -8,6 +8,7 @@
             <tree string="Peminjaman Buku Perpustakaan">
                 <field name="pj_judul_id"></field>
                 <field name="pj_penulis_id"></field>
+                <field name="pj_kategori_id"></field>
                 <field name="pj_id_number"></field>
                 <field name="pj_tgl_pinjam"></field>
                 <field name="pj_tgl_balik" decoration-success="status_bar=='return'"
@@ -37,6 +38,7 @@
                         <group>
                             <field name="pj_judul_id" options="{'no_create': True}"></field>
                             <field name="pj_penulis_id" widget="many2many_tags"></field>
+                            <field name="pj_kategori_id"></field>
                         </group>
                         <group>
                             <field name="pj_peminjam_id" readonly="1"></field>
@@ -53,13 +55,14 @@
         </field>
     </record>
 
-    <record id="pinjam_buku_view_search" model="ir.ui.view">
+    <!-- <record id="pinjam_buku_view_search" model="ir.ui.view">
         <field name="name">pinjam_buku.view.search</field>
         <field name="model">pinjam.buku</field>
         <field name="arch" type="xml">
             <search>
                 <field name="pj_judul_id"></field>
                 <field name="pj_penulis_id"></field>
+                <field name="pj_kategori_id"></field>
                 <field name="pj_peminjam_id"></field>
                 <field name="pj_tgl_pinjam"></field>
                 <field name="pj_maks_balik"></field>
@@ -67,12 +70,13 @@
                 <filter name="filter_draft" string="Draft" domain="[('status_bar', '=', 'draft')]"/>
                 <filter name="filter_in_progress" string="In Progress" domain="[('status_bar', '=', 'in_progress')]"/>
                 <filter name="filter_return" string="Return" domain="[('status_bar', '=', 'return')]"/>
+                <filter name="filter_overdue" string="Overdue" domain="[('status_bar', '=', 'overdue')]"/>
                 <group expand="0" string="Group By">
-                    <filter name="group_by_peminjam" string="Group By Peminjam" context="{'group_by': 'pj_peminjam_id'}" />
+                    <filter name="group_by_peminjam" string="Peminjam" context="{'group_by': 'pj_peminjam_id'}" />
                 </group>
             </search>
         </field>
-    </record>
+    </record> -->
 
     <record id="pinjam_buku_action" model="ir.actions.act_window">
         <field name="name">Peminjaman Buku Perpustakaan</field>
