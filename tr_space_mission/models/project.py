@@ -7,4 +7,4 @@ class Project(models.Model):
 
 
 
-    mission_id = fields.Many2one('mission.model', string="Mission")
+    mission_id = fields.Many2one('mission.model', string='Mission')

@@ -8,4 +8,4 @@ class BookModel(models.Model):
     _rec_name = 'book'
 
 
-    book = fields.Char(string="Book")
+    book = fields.Char(string='Book')
