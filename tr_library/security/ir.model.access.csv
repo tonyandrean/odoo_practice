@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_library_admin,access.library.admin,model_tr_library,group_library_administrator,1,1,1,1
+access_book_model_admin,access.book.model.admin,model_book_model,group_library_administrator,1,1,1,1
+access_rental_model_admin,access.rental.model.admin,model_rental_model,group_library_administrator,1,1,1,1
+
+access_library_user,access.library.user,model_tr_library,group_library_customer,1,1,1,0
+access_book_model,access.book.model.user,model_book_model,group_library_customer,1,1,1,0
+access_rental_model,access.rental.model.user,model_rental_model,group_library_customer,1,1,1,0

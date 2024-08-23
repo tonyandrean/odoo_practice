@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_spaceship_1" model="tr.spaceship">
+            <field name="name">Kapal Laud</field>
+            <field name="model">Tempur</field>
+            <field name="captain">Bob</field>
+            <field name="required_crew">12</field>
+            <field name="type">fighter</field>
+            <field name="build_date">1976-07-03</field>
+            <field name="length">72</field>
+            <field name="width">40</field>
+            <field name="engine_number">KLT-19760703</field>
+            <field name="fuel_type">liquid_fuel</field>
+        </record>
+
+        <record id="demo_spaceship_2" model="tr.spaceship">
+            <field name="name">Kapal Prang</field>
+            <field name="model">Barang</field>
+            <field name="captain">San</field>
+            <field name="required_crew">7</field>
+            <field name="type">transport</field>
+            <field name="build_date">1672-10-30</field>
+            <field name="length">20</field>
+            <field name="width">16</field>
+            <field name="engine_number">KPB-16721030</field>
+            <field name="fuel_type">solid_fuel</field>
+        </record>
+
+        <record id="demo_spaceship_3" model="tr.spaceship">
+            <field name="name">Getek</field>
+            <field name="model">Support</field>
+            <field name="captain">Grand</field>
+            <field name="required_crew">13</field>
+            <field name="type">scout_ship</field>
+            <field name="build_date">1898-12-23</field>
+            <field name="length">63</field>
+            <field name="width">33</field>
+            <field name="engine_number">GS-18981223</field>
+            <field name="fuel_type">liquid_fuel</field>
+        </record>
+
+    </data>
+</odoo>

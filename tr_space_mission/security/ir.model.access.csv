@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_spaceship_admin,access.spaceship.admin,model_tr_spaceship,group_space_mission_administrator,1,1,1,1
+access_mission_model_admin,access.mission.model.admin,model_mission_model,group_space_mission_administrator,1,1,1,1
+access_project_wizard_admin,access.project.wizard.admin,model_project_wizard,group_space_mission_administrator,1,1,1,1
+
+access_spaceship_crew,access.spaceship.user,model_tr_spaceship,group_space_mission_crew,1,1,1,1
+access_spaceship_user,access.spaceship.user,model_tr_spaceship,group_space_mission_user,1,1,0,0
+access_mission_model_user,access.mission.model.user,model_mission_model,group_space_mission_user,1,1,0,0
+access_project_wizard_user,access.project.wizard.user,model_project_wizard,group_space_mission_user,1,1,0,0

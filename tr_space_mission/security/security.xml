@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+
+    <record model="ir.module.category" id="module_category_tr_space_mission">
+        <field name="name">Space Mission</field>
+        <field name="description">Helps you manage your spaceship.</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <record id="group_space_mission_administrator" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="tr_space_mission.module_category_tr_space_mission"/>
+    </record>
+
+    <record id="group_space_mission_crew" model="res.groups">
+        <field name="name">Space Crew</field>
+        <field name="category_id" ref="tr_space_mission.module_category_tr_space_mission"/>
+    </record>
+
+    <record id="group_space_mission_user" model="res.groups">
+        <field name="name">General User</field>
+        <field name="category_id" ref="tr_space_mission.module_category_tr_space_mission"/>
+    </record>
+
+</odoo>

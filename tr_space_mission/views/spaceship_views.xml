@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="tr_spaceship_view_form" model="ir.ui.view">
+        <field name="name">tr.spaceship.view.form</field>
+        <field name="model">tr.spaceship</field>
+        <field name="arch" type="xml">
+            <form string="Spaceship">
+                <header>
+                </header>
+                <sheet>
+                    <h1><field name="name" placeholder="e.g. Andromeda Spaceship"/></h1>
+                    <h3><field name="model" placeholder="e.g. Battle Spaceship"/></h3>
+                    <group>
+                        <separator string="Crew"/>
+                        <field name="captain"/>
+                        <field name="required_crew"/>
+                    </group>
+                    <group>
+                        <separator string="Spaceship"/>
+                        <field name="type"/>
+                        <field name="build_date"/>
+                        <field name="active"/>
+                    </group>
+                    <notebook>
+                        <page string="Spaceship Specs">
+                            <separator string="Dimensions"/>
+                            <field name="length"/>
+                            <field name="width"/>
+                            <field name="height"/>
+                            <separator string="Engine"/>
+                            <field name="engine_number" placeholder="AS-20240821"/>
+                            <field name="fuel_type"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tr_spaceship_view_tree" model="ir.ui.view">
+        <field name="name">tr.spaceship.view.tree</field>
+        <field name="model">tr.spaceship</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="model"/>
+                <field name="type"/>
+                <field name="captain"/>
+                <field name="build_date"/>
+                <field name="fuel_type"/>
+                <field name="total_dimension"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tr_spaceship_view_graph" model="ir.ui.view">
+        <field name="name">tr.spaceship.view.graph</field>
+        <field name="model">tr.spaceship</field>
+        <field name="arch" type="xml">
+            <graph string="Spaceship">
+                <field name="type"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="tr_spaceship_view_search" model="ir.ui.view">
+        <field name="name">tr.spaceship.view.search</field>
+        <field name="model">tr.spaceship</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="captain"/>
+
+                <filter name="group_by_type" string="Type" context="{'group_by': 'type'}"/>
+                <filter name="group_by_model" string="Model" context="{'group_by': 'model'}"/>
+
+                <filter name="filter_by_active" string="Filter by Active" domain="[('active', '=', True)]"/>
+                <filter name="filter_by_build_date" string="Filter by Build Date" domain="[('build_date', '=', True)]"/>
+                </search>
+        </field>
+    </record>
+
+    <record id="tr_spaceship_action" model="ir.actions.act_window">
+        <field name="name">Spaceship</field>
+        <field name="res_model">tr.spaceship</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+</odoo>

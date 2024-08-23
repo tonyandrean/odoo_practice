@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <record id="project_wizard_form_view" model="ir.ui.view">
+        <field name="name">project.wizard.form.view</field>
+        <field name="model">project.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Project">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="label"/>
+                            <field name="partner_id"/>
+                            <field name="mission_id"/>
+                        </group>
+                        <group>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="user_id"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="create_project" type="object" string="Create" class="oe_highlight" />
+                </footer>
+            </form>
+        </field>
+     </record>
+
+    <record id="project_wizard_action" model="ir.actions.act_window">
+        <field name="name">Project Wizard</field>
+        <field name="res_model">project.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
