@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data noupdate="1">
+        <record id="seq_book_model_copy" model="ir.sequence">
+            <field name="name">Book Model Sequence</field>
+            <field name="code">book.model</field>
+            <field name="prefix">Copy-</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+
+</odoo>

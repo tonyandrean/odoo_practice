@@ -23,4 +23,10 @@
               parent="library_menu"
               action="rental_model_action"/>
 
+    <menuitem name="Book Wizard"
+              id="book_wizard_list"
+              sequence="10"
+              parent="library_menu"
+              action="book_wizard_action"/>
+
 </odoo>

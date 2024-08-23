@@ -7,9 +7,28 @@
         <field name="arch" type="xml">
             <form string="Book Model">
                 <sheet>
+                    <h1><field name="internal_reference"/></h1>
+                    <h2><field name="book_id"/></h2>
                     <group>
-                        <field name="book"/>
+                        <separator string="Author"/>
+                        <field name="author"/>
+                        <separator string="Publish Information"/>
+                        <field name="publisher"/>
+                        <field name="publish_date"/>
                     </group>
+                    <group>
+                        <separator string="Book"/>
+                        <field name="isbn"/>
+                        <field name="format"/>
+                        <field name="genre"/>
+                        <field name="edition"/>
+                        <field name="price"/>
+                    </group>
+                    <notebook>
+                        <page string="summary">
+                            <field name="summary"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -20,7 +39,16 @@
         <field name="model">book.model</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="book"/>
+                <field name="internal_reference"/>
+                <field name="book_id"/>
+                <field name="genre"/>
+                <field name="author"/>
+                <field name="publisher"/>
+                <field name="publish_date"/>
+                <field name="format"/>
+                <field name="isbn"/>
+                <field name="edition"/>
+                <field name="price"/>
             </tree>
         </field>
     </record>

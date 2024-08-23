@@ -27,5 +27,17 @@ class TrainLibrary(models.Model):
     @api.onchange('isbn')
     def check_isbn_length(self):
         for rec in self:
-            if len(rec.isbn) != 13:
-                raise ValidationError('ISBN is not the correct length')
+            if rec.isbn:
+                if len(rec.isbn) != 13:
+                    raise ValidationError('ISBN is not the correct length')
+
+    def write(self, vals):
+        if 'isbn' in vals:
+            self.check_isbn_length()
+        return super(TrainLibrary, self).write(vals)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        if 'isbn' in vals_list:
+            self.check_isbn_length()
+        return super(TrainLibrary, self).create(vals_list)

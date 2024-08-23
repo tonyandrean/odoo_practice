@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <record id="book_wizard_form_view" model="ir.ui.view">
+        <field name="name">book.wizard.form.view</field>
+        <field name="model">book.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Book">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="book_id"/>
+                            <field name="customer_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="create_book" type="object" string="Create" class="oe_highlight" />
+                </footer>
+            </form>
+        </field>
+     </record>
+
+    <record id="book_wizard_action" model="ir.actions.act_window">
+        <field name="name">Book Wizard</field>
+        <field name="res_model">book.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
