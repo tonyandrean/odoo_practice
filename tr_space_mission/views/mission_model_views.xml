@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="mission_model_view_form" model="ir.ui.view">
+        <field name="name">mission.model.view.form</field>
+        <field name="model">mission.model</field>
+        <field name="arch" type="xml">
+            <form string="Mission">
+                <sheet>
+                    <group>
+                        <field name="mission"/>
+                        <field name="space_id"/>
+                        <field name="captain"/>
+                        <field name="project_line"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="mission_model_view_tree" model="ir.ui.view">
+        <field name="name">mission.model.view.tree</field>
+        <field name="model">mission.model</field>
+        <field name="arch" type="xml">
+            <tree string="Mission List">
+                <field name="mission"/>
+                <field name="space_id"/>
+                <field name="captain"/>
+                <field name="project_line"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mission_model_action" model="ir.actions.act_window">
+        <field name="name">Mission Model</field>
+        <field name="res_model">mission.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+</odoo>

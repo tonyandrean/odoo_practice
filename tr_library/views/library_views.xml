@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="tr_library_view_form" model="ir.ui.view">
+        <field name="name">tr.library.view.form</field>
+        <field name="model">tr.library</field>
+        <field name="arch" type="xml">
+            <form string="Library">
+                <header>
+                </header>
+                <sheet>
+                    <h1><field name="name"/></h1>
+                    <group>
+                        <separator string="Author"/>
+                        <field name="author"/>
+                        <separator string="Publish Information"/>
+                        <field name="publisher"/>
+                        <field name="publish_date"/>
+                    </group>
+                    <group>
+                        <separator string="Book"/>
+                        <field name="isbn"/>
+                        <field name="format"/>
+                        <field name="genre"/>
+                        <field name="edition"/>
+                        <field name="price"/>
+                        <field name="active"/>
+                    </group>
+                    <notebook>
+                        <page string="summary">
+                            <field name="summary"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tr_library_view_tree" model="ir.ui.view">
+        <field name="name">tr.library.view.tree</field>
+        <field name="model">tr.library</field>
+        <field name="arch" type="xml">
+            <tree string="Library">
+                <field name="name"/>
+                <field name="genre"/>
+                <field name="author"/>
+                <field name="publisher"/>
+                <field name="publish_date"/>
+                <field name="format"/>
+                <field name="isbn"/>
+                <field name="edition"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tr_library_view_search" model="ir.ui.view">
+        <field name="name">tr.library.view.search</field>
+        <field name="model">tr.library</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="format"/>
+                <field name="author"/>
+                <field name="isbn"/>
+
+                <filter name="group_by_publish_date" string="Publish Date Year" context="{'group_by': 'publish_date'}"/>
+                <filter name="group_by_genre" string="Genre" context="{'group_by': 'genre'}"/>
+
+                <filter name="filter_by_publish_date" string="Filter by Publish Date" domain="[('publish_date', '!=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="tr_library_action" model="ir.actions.act_window">
+        <field name="name">Library</field>
+        <field name="res_model">tr.library</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem name="Space Mission"
+              id="space_mission_menu"
+              sequence="0"/>
+
+    <menuitem name="Spaceship"
+              id="spaceship_list"
+              sequence="1"
+              parent="space_mission_menu"
+              action="tr_spaceship_action"/>
+
+    <menuitem name="Mission"
+              id="mission_list"
+              sequence="5"
+              parent="space_mission_menu"
+              action="mission_model_action"/>
+
+    <menuitem name="Project"
+              id="project_list"
+              sequence="8"
+              parent="space_mission_menu"
+              action="project_wizard_action"/>
+
+</odoo>
