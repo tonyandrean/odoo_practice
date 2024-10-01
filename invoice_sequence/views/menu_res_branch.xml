@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_res_branch"
+              action="action_res_branch"
+              parent="base.menu_users"
+              sequence="100"/>
+</odoo>
