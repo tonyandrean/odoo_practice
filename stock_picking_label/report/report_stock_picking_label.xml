@@ -6,9 +6,9 @@
                 <t t-call="web.basic_layout">
                     <div class="page">
                         <t t-foreach="doc.move_line_ids" t-as="line">
-                            <table class="table table-bordered" style="width: 100%; text-align: left; margin-top: 0px; padding: 0px;">
+                            <table class="table table-borderless" style="width: 100%; text-align: left; margin-top: 0px; padding: 0px;">
                                 <tr>
-                                    <td colspan="3" style="text-align: center; padding: 0px; font-size: 14px;">
+                                    <td colspan="3" style="text-align: center; padding: 3px; font-size: 14px;">
                                         <span t-esc="doc.company_id.name"/>
                                     </td>
                                 </tr>
@@ -17,34 +17,52 @@
                                         <img t-att-src="image_data_uri(doc.company_id.logo)" alt="Logo" width="25" height="25"/>
                                     </td>
                                     <td style="width: 70%; padding: 0px; font-size: 14px;">
-                                        <strong>Code:</strong> <span t-esc="line.product_id.default_code" />
-                                        <br/>
-                                        <strong>Product Code:</strong> <span t-esc="line.product_id.display_name" />
+                                        <table style="width: 100%; border-collapse: collapse;">
+                                            <tr>
+                                                <td style="width: 31%;"><strong>Code</strong></td>
+                                                <td style="width: 4%;">:</td>
+                                                <td><span t-esc="line.product_id.default_code" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Product Code</strong></td>
+                                                <td>:</td>
+                                                <td><span t-esc="line.product_id.display_name" /></td>
+                                            </tr>
+                                        </table>
                                     </td>
                                     <td style="text-align:center; width: 20%; vertical-align: middle; padding: 0px;">
-                                        <img t-att-src="'/report/barcode/QR/' + line.product_id.default_code" width="60" height="60"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="3" style="padding: 0px; font-size: 14px;">
-                                        <strong>Order Name:</strong> <span t-esc="doc.name" />
-                                        <br/>
-                                        <strong>Product Name:</strong> <span t-esc="line.product_id.name" />
+                                        <img t-att-src="'/report/barcode/QR/' + 'http://localhost:8017/web#id=' + str(line.product_id.id) + '&amp;model=product.product&amp;view_type=form'" width="60" height="60"/>
                                     </td>
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered" style="width: 100%; text-align: left; margin-top: 0px; table-layout: fixed; padding: 0px;">
+                            <table class="table table-bordered" style="border: 1px; width: 100%; text-align: left; margin-top: 0px; table-layout: fixed; padding: 0px;">
+                                <tr>
+                                    <td colspan="3" style="padding: 0px; font-size: 14px;">
+                                        <table style="width: 100%; border-collapse: collapse; border: none;">
+                                            <tr>
+                                                <td style="width: 32%; border: none;"><strong>Order Name</strong></td>
+                                                <td style="width: 3%; border: none;">:</td>
+                                                <td style="border: none;"><span t-esc="doc.name" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: none;"><strong>Product Name</strong></td>
+                                                <td style="border: none;">:</td>
+                                                <td style="border: none;"><span t-esc="line.product_id.name" /></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
                                 <tr style="text-align: center;">
                                     <td rowspan="2" style="height: 50px; vertical-align: middle; padding: 0px;">
-                                        <img t-att-src="'/report/barcode/Code128/' + line.product_id.default_code" width="140" height="70"/>
+                                        <img t-att-src="'/report/barcode/Code128/' + 'http://localhost:8017/web#id=' + line.product_id.default_code" width="140" height="70"/>
                                     </td>
                                     <td style="font-size: 14px;"><strong>Key</strong></td>
                                     <td style="font-size: 14px;"><strong>Quantity</strong></td>
                                 </tr>
                                 <tr style="text-align: center;">
                                     <td style="font-size: 14px;"><span t-esc="line.product_id.default_code" /></td>
-                                    <td style="font-size: 14px;"><span t-esc="line.quantity" /></td>
+                                    <td style="font-size: 14px;"><span t-esc="int(line.quantity)" /></td>
                                 </tr>
                             </table>
 
