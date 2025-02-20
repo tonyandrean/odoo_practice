@@ -3,6 +3,7 @@ from odoo.http import request
 import json
 import logging
 from .limit import rate_limit
+from .api_check import check_api_key
 
 _logger = logging.getLogger(__name__)
 
@@ -11,8 +12,15 @@ class VendorController(http.Controller):
 
     @http.route('/api/vendor', type='json', auth='public', methods=['post'], csrf=False)
     def create_vendor(self, **kwargs):
+        check_api_key()
         rate_limit()
         try:
+            if not kwargs.get('name'):
+                return {
+                    'status': 'error',
+                    'message': 'Vendor name is required.'
+                }
+
             vendor = request.env['res.partner'].sudo().create({
                 'name': kwargs.get('name'),
                 'supplier_rank': 1,
@@ -32,20 +40,27 @@ class VendorController(http.Controller):
             return {
                 'status': 'success',
                 'id': vendor.id,
-                "message": f"Vendor {vendor.name} created successfully."
-            }
-        except Exception as e:
-            return {
-                'status': 'error',
-                'message': str(e)
+                "message": f"Success created {vendor.name}."
             }
 
-    @http.route('/api/vendor/<int:vendor_id>', type='http', auth='public', methods=['get'], csrf=False)
+        except Exception as e:
+            return {
+                'jsonrpc': '2.0',
+                'id': None,
+                'error': {
+                    'code': 500,
+                    'message': 'Internal Server Error',
+                    'data': str(e)
+                }
+            }
+
+    @http.route('/api/vendor/<int:vendor_id>', type='json', auth='public', methods=['get'], csrf=False)
     def read_vendor(self, vendor_id):
+        check_api_key()
         rate_limit()
         try:
             vendor = request.env['res.partner'].sudo().browse(vendor_id)
-            if not vendor.exists() or vendor.supplier_rank < 1:
+            if not vendor.exists() or vendor.is_company == False:
                 return json.dumps({
                     'status': 'error',
                     'message': 'Vendor not found'
@@ -80,6 +95,7 @@ class VendorController(http.Controller):
                 'status': 'success',
                 'data': data
             })
+
         except Exception as e:
             return json.dumps({
                 'status': 'error',
@@ -88,9 +104,10 @@ class VendorController(http.Controller):
 
     @http.route('/api/vendor/<int:vendor_id>', type='json', auth='public', methods=['put'], csrf=False)
     def update_vendor(self, vendor_id, **kwargs):
+        check_api_key()
         try:
             vendor = request.env['res.partner'].sudo().browse(vendor_id)
-            if not vendor.exists() or vendor.supplier_rank < 1:
+            if not vendor.exists() or vendor.is_company == False:
                 return {
                     'status': 'error',
                     'message': 'Vendor not found'
@@ -112,6 +129,7 @@ class VendorController(http.Controller):
                 'status': 'success',
                 "message": f"Vendor {vendor.name} updated successfully."
             }
+
         except Exception as e:
             return {
                 'status': 'error',
@@ -120,9 +138,10 @@ class VendorController(http.Controller):
 
     @http.route('/api/vendor/<int:vendor_id>', type='json', auth='public', methods=['delete'], csrf=False)
     def delete_vendor(self, vendor_id):
+        check_api_key()
         try:
             vendor = request.env['res.partner'].sudo().browse(vendor_id)
-            if not vendor.exists() or vendor.supplier_rank < 1:
+            if not vendor.exists() or vendor.is_company == False:
                 return {
                     'status': 'error',
                     'message': 'Vendor not found'
@@ -134,6 +153,7 @@ class VendorController(http.Controller):
                 'status': 'success',
                 "message": f"Vendor {vendor_name} deleted successfully."
             }
+
         except Exception as e:
             return {
                 'status': 'error',
